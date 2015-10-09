@@ -46,10 +46,14 @@ public class SaveTheCity {
         tileOne.setRescueTile("No");
         tileOne.setHeroName("Bob");
         tileOne.setVillainName("Anti-Bob");
+        String tilesInfo = tileOne.toString();
+        System.out.println(tilesInfo);
         
         mapOne.setRowTile(10);
         mapOne.setColumnTile(10);
         mapOne.setHeroName("Bob");
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
       
     }
     
