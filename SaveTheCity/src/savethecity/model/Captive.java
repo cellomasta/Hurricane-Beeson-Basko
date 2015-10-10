@@ -13,33 +13,33 @@ import java.util.Objects;
  * @author Alicia
  */
 public class Captive implements Serializable{
-    private String character;
-    private String tile;
+    private Character character;
+    private Tiles tile;
     
     public Captive(){
-}
+    }
 
-    public String getCharacter() {
+    public Character getCharacter() {
         return character;
     }
 
-    public void setCharacter(String character) {
+    public void setCharacter(Character character) {
         this.character = character;
     }
 
-    public String getTile() {
+    public Tiles getTile() {
         return tile;
     }
 
-    public void setTile(String tile) {
+    public void setTile(Tiles tile) {
         this.tile = tile;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.character);
-        hash = 17 * hash + Objects.hashCode(this.tile);
+        int hash = 5;
+        hash = 43 * hash + Objects.hashCode(this.character);
+        hash = 43 * hash + Objects.hashCode(this.tile);
         return hash;
     }
 
@@ -65,5 +65,4 @@ public class Captive implements Serializable{
     public String toString() {
         return "Captive{" + "character=" + character + ", tile=" + tile + '}';
     }
-    
 }

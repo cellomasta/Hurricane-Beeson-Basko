@@ -10,6 +10,10 @@ import savethecity.model.Item;
 import savethecity.model.Players;
 import savethecity.model.Tiles;
 import savethecity.model.Map;
+import savethecity.model.Villain;
+import savethecity.model.Hero;
+import savethecity.model.Captive;
+
 
 
 /**
@@ -25,6 +29,9 @@ public class SaveTheCity {
         Players playerOne = new Players();
         Tiles tileOne = new Tiles();
         Map mapOne = new Map();
+        Hero heroOne = new Hero();
+        Captive captiveOne = new Captive();
+        Villain villainOne = new Villain();
         
         characterOne.setName("Fred Flinstone");
         characterOne.setAttackPower(10);
@@ -54,7 +61,57 @@ public class SaveTheCity {
         mapOne.setHeroName("Bob");
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
-      
+        
+        Character characterHero = new Character();
+        characterHero.setName("Captian America");
+        characterHero.setAttackPower(10);
+        characterHero.setHitPoints(100);
+        
+        Tiles tileHero = new Tiles();
+        tileHero.setItemTile("No");
+        tileHero.setEmptyTile("Yes");
+        tileHero.setRescueTile("Grocer");
+        tileHero.setHeroName("Captain America");
+        tileHero.setVillainName("Lighting Lord");
+ 
+        heroOne.setCharacter(characterHero);
+        heroOne.setTile(tileHero);
+        String heroInfo = heroOne.toString();
+        System.out.println(heroInfo);
+        
+        Character characterVillain = new Character();
+        characterVillain.setName("Clock King");
+        characterVillain.setAttackPower(20);
+        characterVillain.setHitPoints(100);
+        
+        Tiles tileVillain = new Tiles();
+        tileVillain.setItemTile("No");
+        tileVillain.setEmptyTile("Yes");
+        tileVillain.setRescueTile("Baker");
+        tileVillain.setHeroName("Black Widow");
+        tileVillain.setVillainName("Clock King");
+ 
+        villainOne.setCharacter(characterVillain);
+        villainOne.setTile(tileVillain);
+        String villainInfo = villainOne.toString();
+        System.out.println(villainInfo);
+        
+        Character characterCaptive = new Character();
+        characterCaptive.setName("Clock King");
+        characterCaptive.setAttackPower(25);
+        characterCaptive.setHitPoints(100);
+        
+        Tiles tileCaptive = new Tiles();
+        tileCaptive.setItemTile("No");
+        tileCaptive.setEmptyTile("Yes");
+        tileCaptive.setRescueTile("Banker");
+        tileCaptive.setHeroName("Superman");
+        tileCaptive.setVillainName("Onslaught");
+ 
+        captiveOne.setCharacter(characterCaptive);
+        captiveOne.setTile(tileCaptive);
+        String captiveInfo = captiveOne.toString();
+        System.out.println(captiveInfo);
     }
     
 }

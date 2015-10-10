@@ -12,34 +12,34 @@ import java.util.Objects;
  *
  * @author Alicia
  */
-public class Villian implements Serializable{
-    private String character;
-    private String tile;
+public class Hero implements Serializable{
+    private Character character;
+    private Tiles tile;
     
-    public Villian(){
-}
+    public Hero(){
+    }
 
-    public String getCharacter() {
+    public Character getCharacter() {
         return character;
     }
 
-    public void setCharacter(String character) {
+    public void setCharacter(Character character) {
         this.character = character;
     }
 
-    public String getTile() {
+    public Tiles getTile() {
         return tile;
     }
 
-    public void setTile(String tile) {
+    public void setTile(Tiles tile) {
         this.tile = tile;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.character);
-        hash = 71 * hash + Objects.hashCode(this.tile);
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.character);
+        hash = 59 * hash + Objects.hashCode(this.tile);
         return hash;
     }
 
@@ -51,7 +51,7 @@ public class Villian implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Villian other = (Villian) obj;
+        final Hero other = (Hero) obj;
         if (!Objects.equals(this.character, other.character)) {
             return false;
         }
@@ -63,7 +63,6 @@ public class Villian implements Serializable{
 
     @Override
     public String toString() {
-        return "Villian{" + "character=" + character + ", tile=" + tile + '}';
+        return "Hero{" + "character=" + character + ", tile=" + tile + '}';
     }
-    
 }
