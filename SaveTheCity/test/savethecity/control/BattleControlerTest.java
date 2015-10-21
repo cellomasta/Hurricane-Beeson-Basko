@@ -28,7 +28,7 @@ public class BattleControlerTest {
         double heroDamage = 15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = 14.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = true;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);
@@ -40,7 +40,7 @@ public class BattleControlerTest {
         double heroDamage = 15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = 14.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = true;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);
@@ -52,7 +52,7 @@ public class BattleControlerTest {
         double heroDamage = 15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = 100.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = false;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);
@@ -63,7 +63,7 @@ public class BattleControlerTest {
         double heroDamage = 15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = 0.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = true;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);
@@ -74,7 +74,7 @@ public class BattleControlerTest {
         double heroDamage = -15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = 15.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = false;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);
@@ -85,7 +85,7 @@ public class BattleControlerTest {
         double heroDamage = 15.0;
         double numberOfAttacks = 1.0;
         double villainHealth = -15.0;
-        BattleControler instance = new BattleControler();
+        BattleController instance = new BattleController();
         Boolean expResult = true;
         Boolean result = instance.heroAttack(heroDamage, numberOfAttacks, villainHealth);
         assertEquals(expResult, result);

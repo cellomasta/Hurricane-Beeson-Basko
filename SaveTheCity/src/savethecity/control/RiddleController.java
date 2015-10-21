@@ -9,6 +9,6 @@ package savethecity.control;
  *
  * @author Alicia
  */
-public class MovementControler {
+public class RiddleController {
     
 }

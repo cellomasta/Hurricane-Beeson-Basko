@@ -12,7 +12,7 @@ import static java.lang.Boolean.TRUE;
  *
  * @author Alicia
  */
-public class BattleControler {
+public class BattleController {
     public Boolean heroAttack(double heroDamage, double numberOfAttacks, double villainHealth){
         	
         double villainHealthEnd = villainHealth - heroDamage * numberOfAttacks;
