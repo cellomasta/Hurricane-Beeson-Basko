@@ -5,7 +5,9 @@
  */
 package savethecity.control;
 
-import java.util.Random;
+import java.text.DecimalFormat;
+
+
 
 /**
  *
@@ -17,17 +19,20 @@ public class RiddleController {
     //switch(which){
     
     //Calculate Volume of User
-    final int AVG_DENSITY = 1;
-    final double GRAMS_PER_POUND = 453.6;
-    final double CC_PER_CUBIC_FOOT = 28316.8;
+    /*final int AVG_DENSITY = 1;
+    *final double GRAMS_PER_POUND = 453.6;
+    *final double CC_PER_CUBIC_FOOT = 28316.8;*/
     
-    //Volume of Container
-    final double INCH_TO_GALLON = 0.004329;
+    /*Volume of Container
+    *final double INCH_TO_GALLON = 0.004329;*/
     
     public double userVolume(double userWeightInPounds, int AVG_DENSITY, double GRAMS_PER_POUND, double CC_PER_CUBIC_FOOT) {
         if (userWeightInPounds >= 0){
             double userMass = userWeightInPounds * GRAMS_PER_POUND;
-            double userVolume = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
+            double userVolumeLong = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
+            DecimalFormat df = new DecimalFormat("#.00");
+            String userVolumeString = df.format(userVolumeLong); //Math rounding to two decimal places.
+            double userVolume = Double.parseDouble(userVolumeString);
             return userVolume;
         }
         else{
@@ -37,7 +42,10 @@ public class RiddleController {
     public double containerVolume(double containerLength, double containerWidth, double containerHeight, double INCH_TO_GALLON){
         double volumeOfBox = containerLength * containerWidth * containerHeight;
         if (volumeOfBox > 0){
-            double gallonCapacity = volumeOfBox * INCH_TO_GALLON;
+            double gallonCapacityLong = volumeOfBox * INCH_TO_GALLON;
+            DecimalFormat df = new DecimalFormat("#.00");
+            String gallonCapacityString = df.format(gallonCapacityLong); //rounding to two decimal places.
+            double gallonCapacity = Double.parseDouble(gallonCapacityString);
             return gallonCapacity;
         }
         else{

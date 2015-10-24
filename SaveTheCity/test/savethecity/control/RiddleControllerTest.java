@@ -119,7 +119,7 @@ public class RiddleControllerTest {
         double containerHeight = 10;
         double INCH_TO_GALLON = 0.004329;
         RiddleController instance = new RiddleController();
-        double expResult = 4.329;
+        double expResult = 4.33;
         double result = instance.containerVolume(containerLength, containerWidth, containerHeight, INCH_TO_GALLON);
         assertEquals(expResult, result, 0.0);
         
