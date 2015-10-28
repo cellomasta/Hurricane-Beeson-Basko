@@ -13,6 +13,7 @@ import savethecity.model.Map;
 import savethecity.model.Villain;
 import savethecity.model.Hero;
 import savethecity.model.Captive;
+import savetheciy.view.StartProgramView;
 
 
 
@@ -21,10 +22,33 @@ import savethecity.model.Captive;
  * @author CHRIS
  */
 public class SaveTheCity {
+    
+    private static Game currentGame = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        SaveTheCity.currentGame = currentGame;
+    }
+
+    public static Players getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Players player) {
+        SaveTheCity.player = player;
+    }
+    private static Players player = null;
 
     public static void main(String[] args) {
         
-        Character characterOne = new Character();
+        //create StartProgramView and start the program
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
+        
+        /*Character characterOne = new Character();
         Item itemOne = new Item();
         Players playerOne = new Players();
         Tiles tileOne = new Tiles();
@@ -112,6 +136,7 @@ public class SaveTheCity {
         captiveOne.setTile(tileCaptive);
         String captiveInfo = captiveOne.toString();
         System.out.println(captiveInfo);
+                */
     }
     
 }
