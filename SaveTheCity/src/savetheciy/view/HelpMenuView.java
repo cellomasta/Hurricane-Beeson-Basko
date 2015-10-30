@@ -38,7 +38,7 @@ public class HelpMenuView {
         } while (selection != 'E');
     }
     public void doAction(char choice){
-        switch (choice){
+        switch (Character.toUpperCase(choice)){
             case 'O': 
                 this.displayGameObejective();
                 break;

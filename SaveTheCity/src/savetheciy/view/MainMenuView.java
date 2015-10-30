@@ -39,7 +39,7 @@ public class MainMenuView {
         } while (selection != 'E');
     }
     public void doAction(char choice){
-        switch (choice){
+        switch (Character.toUpperCase(choice)){
             case 'N': 
                 this.startNewGame();
                 break;
