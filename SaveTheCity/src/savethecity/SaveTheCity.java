@@ -13,6 +13,7 @@ import savethecity.model.Map;
 import savethecity.model.Villain;
 import savethecity.model.Hero;
 import savethecity.model.Captive;
+import savethecity.model.Game;
 import savetheciy.view.StartProgramView;
 
 

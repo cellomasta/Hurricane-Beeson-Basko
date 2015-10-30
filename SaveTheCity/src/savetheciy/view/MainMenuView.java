@@ -6,6 +6,8 @@
 package savetheciy.view;
 
 import java.util.Scanner;
+import savethecity.SaveTheCity;
+import savethecity.control.GameControl;
 
 /**
  *
@@ -59,7 +61,10 @@ public class MainMenuView {
 }
     
     private void startNewGame(){
-        System.out.println("*** startNewGame function called ***");
+        GameControl.createNewGame(SaveTheCity.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
     
     private void startExistingGame(){
