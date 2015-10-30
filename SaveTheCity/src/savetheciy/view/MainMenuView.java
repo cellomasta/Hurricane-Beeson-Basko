@@ -19,7 +19,7 @@ public class MainMenuView {
                 + "\n----------------------------------"
                 + "\n| Main Menu                      |"
                 + "\n----------------------------------"
-                + "\nG - Start game"
+                + "\nN - Start New game"
                 + "\nP - Start existing game"
                 + "\nH - Help"
                 + "\nS - Save game"
@@ -76,7 +76,10 @@ public class MainMenuView {
     }
     
     private void displayHelpMenu(){
-        System.out.println("*** displayHelpMenu function called ***");
+        //        System.out.println("*** display help menu ***");
+
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
     
     public String getInput() {

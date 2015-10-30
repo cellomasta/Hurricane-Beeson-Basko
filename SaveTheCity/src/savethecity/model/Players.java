@@ -12,6 +12,7 @@ public class Players implements Serializable{
     
     private double rank;
     private double highScore;
+    private String name;
     
     public Players() {
         
@@ -35,7 +36,7 @@ public class Players implements Serializable{
 
     @Override
     public String toString() {
-        return "Players{" + "rank=" + rank + ", highScore=" + highScore + '}';
+        return "Players{" + "rank=" + rank + ", highScore=" + highScore + "name=" + name + '}';
     }
 
     @Override
@@ -65,14 +66,11 @@ public class Players implements Serializable{
     }
 
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.name;
     }
 
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.name = name;
     }
-    
-    
-    
     
 }

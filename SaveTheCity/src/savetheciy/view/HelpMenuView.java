@@ -15,7 +15,7 @@ import savethecity.control.GameControl;
  */
 public class HelpMenuView {
    
-    private final String MENU = "\n"
+    private final String HMENU = "\n"
                 + "\n----------------------------------"
                 + "\n| Help Menu                      |"
                 + "\n----------------------------------"
@@ -25,11 +25,11 @@ public class HelpMenuView {
                 + "\nE - Exit"
                 + "\n----------------------------------";
 
-    public void displayMenu() {
+    public void displayHMenu() {
         
         char selection = ' ';
         do{
-            System.out.println(MENU); //display the menu
+            System.out.println(HMENU); //display the menu
             
             String input = this.getInput();
             selection = input.charAt(0);
@@ -93,6 +93,10 @@ public class HelpMenuView {
         }
         return userInput; //return the input
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
        
     

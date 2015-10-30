@@ -73,7 +73,6 @@ public class StartProgramView {
             break; //out of the (exit) the repetition
         }
         return playersName; //return the name
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void displayWelcomeMessage(Players player) {
@@ -81,6 +80,5 @@ public class StartProgramView {
         System.out.println("\tWelcome to the game " + player.getName());
         System.out.println("\tGood luck! You're going to need it.");
         System.out.println("==================================");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        }
     }

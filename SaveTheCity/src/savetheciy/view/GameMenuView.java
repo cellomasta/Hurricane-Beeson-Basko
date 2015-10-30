@@ -12,6 +12,6 @@ package savetheciy.view;
 public class GameMenuView {
     
     void displayMenu(){
-        System.out.println("displayMenu stub");
+        System.out.println("displayMenu stub"); 
     }
 }
