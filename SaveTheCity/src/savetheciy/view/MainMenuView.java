@@ -18,6 +18,7 @@ public class MainMenuView {
                 + "\n| Main Menu                      |"
                 + "\n----------------------------------"
                 + "\nG - Start game"
+                + "\nP - Start existing game"
                 + "\nH - Help"
                 + "\nS - Save game"
                 + "\nE - Exit"
@@ -35,8 +36,45 @@ public class MainMenuView {
             this.doAction(selection);
         } while (selection != 'E');
     }
-
-    private String getInput() {
+    public void doAction(char choice){
+        switch (choice){
+            case 'N': 
+                this.startNewGame();
+                break;
+            case 'P': 
+                this.startExistingGame();
+                break;    
+            case 'H':
+                this.displayHelpMenu();
+                break;
+            case 'S':
+                this.saveGame();
+                break;
+            case 'E':
+                return;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
+    }
+}
+    
+    private void startNewGame(){
+        System.out.println("*** startNewGame function called ***");
+    }
+    
+    private void startExistingGame(){
+        System.out.println("*** startExostingGame function called ***");
+    }
+    
+    private void saveGame(){
+        System.out.println("*** saveGame function called ***");
+    }
+    
+    private void displayHelpMenu(){
+        System.out.println("*** displayHelpMenu function called ***");
+    }
+    
+    public String getInput() {
         
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
@@ -55,12 +93,6 @@ public class MainMenuView {
             if (userInput.length() > 1) {
                 System.out.println("Invalid input - enter one character only");
                 continue; //and repeat again
-            }else{
-                switch(userInput){
-                    case "g","G","h","H","s","S","e","E" : userInput = ;//not sure what to put here
-                        break;
-                    default: System.out.println("Invalid menu selection.");
-                }
             }
             break; //out of the (exit) the repetition
         }
