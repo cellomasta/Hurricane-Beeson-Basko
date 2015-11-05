@@ -25,7 +25,7 @@ public class HelpMenuView {
                 + "\nE - Exit"
                 + "\n----------------------------------";
 
-    public void displayHMenu() {
+    public void displayMenu() {
         
         char selection = ' ';
         do{
@@ -93,11 +93,6 @@ public class HelpMenuView {
         }
         return userInput; //return the input
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-       
+    }  
     
 }
