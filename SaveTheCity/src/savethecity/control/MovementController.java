@@ -35,4 +35,12 @@ public class MovementController {
             else
                 return FALSE;
     }
+    public static void MoveNorth(){
+    }
+    public static void MoveSouth(){
+    }
+    public static void MoveEast(){
+    }
+    public static void MoveWest(){
+    }
 }
