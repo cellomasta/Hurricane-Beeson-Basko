@@ -62,7 +62,8 @@ public class FightView {
 }
 
     private void playerAttack(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Player attack number multiplied by attack strength, total subtracted from villain health.");
+        System.out.println("If villain health is less than or equal to zero, villain is defeated.");
     }
 
         
