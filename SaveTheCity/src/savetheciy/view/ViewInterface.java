@@ -9,7 +9,7 @@ package savetheciy.view;
  *
  * @author Alicia
  */
-public class ViewInterface {
+public interface ViewInterface {
     
     public void display();
     public String getInput();

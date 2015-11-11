@@ -13,9 +13,10 @@ import savethecity.control.GameControl;
  *
  * @author willnelson
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String MENU = "\n"
+    public MainMenuView(){
+        super("\n"
                 + "\n----------------------------------"
                 + "\n| Main Menu                      |"
                 + "\n----------------------------------"
@@ -24,22 +25,16 @@ public class MainMenuView {
                 + "\nH - Help"
                 + "\nS - Save game"
                 + "\nE - Exit"
-                + "\n----------------------------------";
-
-    public void displayMenu() {
-        
-        char selection = ' ';
-        do{
-            System.out.println(MENU); //display the menu
-            
-            String input = this.getInput();
-            selection = input.charAt(0);
-            
-            this.doAction(selection);
-        } while (selection != 'E');
+                + "\n----------------------------------");
     }
-    public void doAction(char choice){
-        switch (Character.toUpperCase(choice)){
+    @Override
+    public boolean doAction(Object obj){
+        String value = obj.toString();
+        
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
+        switch(choice){
             case 'N': 
                 this.startNewGame();
                 break;
@@ -53,11 +48,12 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             case 'E':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
     }
+        return false;
 }
     
     private void startNewGame(){
@@ -79,34 +75,6 @@ public class MainMenuView {
         //        System.out.println("*** display help menu ***");
 
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
-    
-    public String getInput() {
-        
-        boolean valid = false; //indicates if the input has been retrieved
-        String userInput = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input
-        
-        while(!valid) { //while a valid input has not been retrieved
-            
-            //prompt for user input
-            System.out.println("Enter menu selection here:");
-            
-            //get the input from the keyboard
-            userInput = keyboard.nextLine();
-            userInput = userInput.trim(); //remove blank spaces
-            
-            //if the input is invalid (more than one character in length)
-            if (userInput.length() > 1) {
-                System.out.println("Invalid input - enter one character only");
-                continue; //and repeat again
-            }
-            break; //out of the (exit) the repetition
-        }
-        return userInput; //return the input
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-       
-    
 }
