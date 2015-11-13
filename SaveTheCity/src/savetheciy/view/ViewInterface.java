@@ -6,7 +6,7 @@
 package savetheciy.view;
 
 /**
- *
+ * This is the interface for the view classes
  * @author Alicia
  */
 public interface ViewInterface {

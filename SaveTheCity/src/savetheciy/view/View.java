@@ -8,11 +8,12 @@ package savetheciy.view;
 import java.util.Scanner;
 
 /**
- *
+ * This is a SuperClass for the view classes
  * @author Alicia
  */
 public abstract class View implements ViewInterface {
   
+    Scanner keyboard = new Scanner(System.in); //keyboard input
     private String promptMessage;
     
     public View(String promptMessage){
@@ -21,7 +22,18 @@ public abstract class View implements ViewInterface {
     
     @Override
     public void display() {
+        String value = "";
+        boolean done = false;
         
+        do{
+            System.out.println(this.promptMessage); //print message
+            value = this.getInput(); //get the user selection
+            done = this.doAction(value); //do action based on selection
+        }
+        while (!done);
+    }
+        
+        /* TEAM DISPLAY FUNCTION
         char selection = ' ';
         do{
             System.out.println(this.promptMessage); //display the menu
@@ -31,12 +43,12 @@ public abstract class View implements ViewInterface {
             
             this.doAction(selection);
         } while (selection != 'E');
-    }
+        */
+    
     
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); //keyboard input
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
         
