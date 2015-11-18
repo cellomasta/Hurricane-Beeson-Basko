@@ -42,8 +42,28 @@ public class Map implements Serializable{
     public Map() {
     }
 
-    private Map(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Map(int rowTile, int columnTile) {
+        
+        if (rowTile < 1 || columnTile < 1) {
+            System.out.println("The number of rows/columns must be > 0.");
+            return;
+        }
+        this.rowTile = rowTile;
+        this.columnTile = columnTile;
+        
+        //create 2D array for location objects
+        this.locations = new Tiles[rowTile][columnTile];
+        
+        for (int row = 0; row < rowTile; row++){
+            for(int column = 0; column < columnTile; column++){
+                Tiles location = new Tiles();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][column] = location;
+            }
+    }
     }
     
     

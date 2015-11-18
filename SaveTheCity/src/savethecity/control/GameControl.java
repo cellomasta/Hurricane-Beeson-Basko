@@ -10,6 +10,7 @@ import savethecity.model.Game;
 import savethecity.model.InventoryItem;
 import savethecity.model.Map;
 import savethecity.model.Players;
+import savethecity.model.Tiles;
 
 /**
  *
@@ -42,7 +43,11 @@ public class GameControl {
     }
 
     public static void assignScenesToLocations(Map map, Map.Scene[] scenes) {
-        System.out.println("Assign scenes to location called");
+        Location[][] locations = map.getLocations();
+        
+        //start point
+        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        
     }
     
 }

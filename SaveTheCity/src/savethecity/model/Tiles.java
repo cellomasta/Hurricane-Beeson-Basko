@@ -19,6 +19,35 @@ public class Tiles implements Serializable{
     private Scene scene;
     private ArrayList<Character> characters;
     
+    private static Scene[] createScenes(){
+        Game game = SaveTheCity.getCurrentGame();
+        
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene startingScene = new Scene();
+        startingScene.setDescription(
+            "\nWelcome.  Your city is being attacked by Villains."
+            +"If you are going to save your city, you will need the"
+            +"help of Heroes.  Better go and find some...good luck.");
+        startingScene.setMapSymbol(" START ");
+        startingScene.setBlocked(false);
+        scenes[SceneType.start.ordinal()] = startingScene;
+        
+        Scene finishScene = new Scene();
+        finishScene.setDescription(
+            "\nCongratulations!  You have saved the city!");
+        finishScene.setMapSymbol(" END ");
+        finishScene.setBlocked(false);
+        scenes[SceneType.finish.ordinal()] = finishScene;
+    }
+    
+    public enum SceneType {
+        start,
+        demonHead,
+        empty,
+        finish
+    }
+    
     //class instance variables
     private String heroName;
     private String villainName;
@@ -145,6 +174,18 @@ public class Tiles implements Serializable{
             return false;
         }
         return true;
+    }
+
+    void setColumn(int column) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
