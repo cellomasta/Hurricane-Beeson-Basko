@@ -14,6 +14,47 @@ import java.io.Serializable;
 public class Game implements Serializable {
     private double totalTime;
     private double noPeople;
+    //0 to 1 relationship
+    private Map map;
+    private Players player;
+    //1 to many relationship
+    private Item[] item;
+    private Character[] character;
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+
+    public void setCharacter(Character[] character) {
+        this.character = character;
+    }
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public Character[] getCharacter() {
+        return character;
+    }
+    
+
+    public Map getMap() {
+        return map;
+    }
+
+    public Players getPlayer() {
+        return player;
+    }
+    
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public void setPlayer(Players player) {
+        this.player = player;
+    }
+    
 
     public double getTotalTime() {
         return totalTime;
@@ -63,6 +104,14 @@ public class Game implements Serializable {
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
+    }
+
+    public void setInventory(InventoryItem[] inventoryList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setInventory(InventoryItem[] inventoryList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

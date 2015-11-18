@@ -8,6 +8,7 @@ package savetheciy.view;
 import java.util.Scanner;
 import savethecity.SaveTheCity;
 import savethecity.control.GameControl;
+import savethecity.model.Players;
 
 /**
  *
@@ -63,8 +64,10 @@ public class MainMenuView extends View {
         gameMenu.displayMenu();
     }
     
+    
+    
     private void startExistingGame(){
-        System.out.println("*** startExostingGame function called ***");
+        System.out.println("*** startExistingGame function called ***");
     }
     
     private void saveGame(){

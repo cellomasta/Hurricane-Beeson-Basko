@@ -13,12 +13,49 @@ import java.util.Objects;
  */
 public class Tiles implements Serializable{
     
+    private int row;
+    private int column;
+    private boolean visited;
+    private Scene scene;
+    private ArrayList<Character> characters;
+    
     //class instance variables
     private String heroName;
     private String villainName;
     private String itemTile;
     private String emptyTile;
     private String rescueTile;
+    
+    private Hero hero;
+    private Villain villain;
+    private Captive captive;
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void setVillain(Villain villain) {
+        this.villain = villain;
+    }
+
+    public void setCaptive(Captive captive) {
+        this.captive = captive;
+    }
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public Villain getVillain() {
+        return villain;
+    }
+
+    public Captive getCaptive() {
+        return captive;
+    }
+    
+    
+    
 
     public Tiles() {
     }

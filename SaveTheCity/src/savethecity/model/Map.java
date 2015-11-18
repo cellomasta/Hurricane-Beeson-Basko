@@ -7,18 +7,43 @@ package savethecity.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import savethecity.control.GameControl;
 /**
  *
  * @author willnelson
  */
 public class Map implements Serializable{
+
+    private static Scene[] createScenes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //class instance variables
     private double rowTile;
     private double columnTile;
-    private String heroName;
+    private Tiles[][] locations;
+    
+    private static Map createMap(){
+        //create the map
+        Map map = new Map (6, 6);
+        
+        //create scenes for map
+        Scene[] scenes = createScenes();
+        
+        //assign scenes to locations
+        GameControl.assignScenesToLocations(map, scenes);
+        
+        return map;
+    }
+    
+    
+    //private Map[] map;
 
     public Map() {
+    }
+
+    private Map(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
@@ -39,26 +64,19 @@ public class Map implements Serializable{
         this.columnTile = columnTile;
     }
 
-    public String getHeroName() {
-        return heroName;
-    }
-
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
-    }
+    
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.rowTile) ^ (Double.doubleToLongBits(this.rowTile) >>> 32));
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.columnTile) ^ (Double.doubleToLongBits(this.columnTile) >>> 32));
-        hash = 37 * hash + Objects.hashCode(this.heroName);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "rowTile=" + rowTile + ", columnTile=" + columnTile + ", heroName=" + heroName + '}';
+        return "Map{" + "rowTile=" + rowTile + ", columnTile=" + columnTile + '}';
     }
     
     
@@ -78,10 +96,14 @@ public class Map implements Serializable{
         if (Double.doubleToLongBits(this.columnTile) != Double.doubleToLongBits(other.columnTile)) {
             return false;
         }
-        if (!Objects.equals(this.heroName, other.heroName)) {
-            return false;
-        }
+        
         return true;
+    }
+
+    private static class Scene {
+
+        public Scene() {
+        }
     }
     
     

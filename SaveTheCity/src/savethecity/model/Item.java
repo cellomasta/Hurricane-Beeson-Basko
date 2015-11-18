@@ -8,7 +8,9 @@ import java.util.Objects;
  *
  * @author CHRIS
  */
-public class Item implements Serializable{
+public enum Item implements Serializable{
+    
+    //list of items in game
     
     private double itemPoints;
     
@@ -24,32 +26,12 @@ public class Item implements Serializable{
     }
 
     
-    @Override
-    public String toString() {
-        return "Item{" + "itemPoints=" + itemPoints + '}';
-    }
+    //@Override
+    //public String toString() {
+    //    return "Item{" + "itemPoints=" + itemPoints + '}';
+    //}
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.itemPoints) ^ (Double.doubleToLongBits(this.itemPoints) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Item other = (Item) obj;
-        if (Double.doubleToLongBits(this.itemPoints) != Double.doubleToLongBits(other.itemPoints)) {
-            return false;
-        }
-        return true;
-    }
+    
 
     
 }
