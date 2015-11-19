@@ -1,4 +1,4 @@
-package savethecity.model;
+/*package savethecity.model;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author CHRIS
  */
-public enum Item implements Serializable{
+/*public enum Item implements Serializable{
     
     //list of items in game
     
@@ -34,4 +34,4 @@ public enum Item implements Serializable{
     
 
     
-}
+}*/

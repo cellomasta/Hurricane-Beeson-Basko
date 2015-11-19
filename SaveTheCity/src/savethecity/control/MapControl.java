@@ -5,6 +5,7 @@
  */
 package savethecity.control;
 
+import static savethecity.control.GameControl.assignScenesToLocations;
 import savethecity.model.Map;
 
 /**
@@ -24,6 +25,10 @@ public class MapControl {
     }
 
     static void moveCharactersToStartingLocation(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Scene[] createScenes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -7,6 +7,7 @@ package savethecity.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.tools.DocumentationTool;
 import savethecity.control.GameControl;
 /**
  *
@@ -42,6 +43,24 @@ public class Map implements Serializable{
     public Map() {
     }
 
+    public void displayMap() {
+        System.out.println("   1 2 3 4 5 6");
+        System.out.println("--------------");
+        for(int r = 0; r < locations.length; r++) {
+            System.out.print(r+1);
+            System.out.print(" |");
+            for(int c = 0; c < locations[r].length; c++) {
+                locations[r][c].displayTile(); 
+                if(c < locations[r].length - 1)
+                    System.out.print('|');
+            }
+            if(r < locations.length - 1)
+                System.out.print("\n--------------");
+            System.out.println();
+        }
+        
+    }
+    
     public Map(int rowTile, int columnTile) {
         
         if (rowTile < 1 || columnTile < 1) {
@@ -118,6 +137,10 @@ public class Map implements Serializable{
         }
         
         return true;
+    }
+
+    public DocumentationTool.Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private static class Scene {

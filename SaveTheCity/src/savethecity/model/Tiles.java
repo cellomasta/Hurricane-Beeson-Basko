@@ -6,7 +6,9 @@
 package savethecity.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
+import savethecity.SaveTheCity;
 /**
  *
  * @author willnelson
@@ -39,11 +41,37 @@ public class Tiles implements Serializable{
         finishScene.setMapSymbol(" END ");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
+        return null;
+    }
+    
+    public void displayTile()
+    {       
+        //TODO: Print the contents of the tile
+        if(visited)
+            System.out.print(" TT "); // <== HERE!!!
+        else
+            System.out.print(" ?? ");
     }
     
     public enum SceneType {
         start,
-        demonHead,
+        Batman,
+        Superman,
+        IronMan,
+        CaptainAmerica,
+        WonderWoman,
+        Librarian,
+        Baker,
+        Tailors,
+        Cobbler,
+        Blacksmith,
+        TaxCollector,
+        Mystique,
+        DoctorOctopus,
+        MisterFreeze,
+        GreenGoblin,
+        Loki,
+        DemonHead,
         empty,
         finish
     }
@@ -81,16 +109,11 @@ public class Tiles implements Serializable{
 
     public Captive getCaptive() {
         return captive;
-    }
-    
-    
-    
+    }    
 
     public Tiles() {
     }
     
-    
-
     public String getHeroName() {
         return heroName;
     }
