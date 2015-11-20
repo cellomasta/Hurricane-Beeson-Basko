@@ -18,10 +18,10 @@ public class Game implements Serializable {
     private Map map;
     private Players player;
     //1 to many relationship
-    private InventoryItem item;
+    private InventoryItem[] item;
     private Character[] character;
 
-    public void setInventory(InventoryItem item) {
+    public void setInventory(InventoryItem[] item) {
         this.item = item;
     }
 
@@ -29,7 +29,7 @@ public class Game implements Serializable {
         this.character = character;
     }
 
-    public InventoryItem getInventory() {
+    public InventoryItem[] getInventory() {
         return item;
     }
 
@@ -104,9 +104,5 @@ public class Game implements Serializable {
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
-    }
-
-    public void setInventory(InventoryItem[] inventoryList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

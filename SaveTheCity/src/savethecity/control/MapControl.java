@@ -7,6 +7,7 @@ package savethecity.control;
 
 import static savethecity.control.GameControl.assignScenesToLocations;
 import savethecity.model.Map;
+import savethecity.model.Scene;
 
 /**
  *

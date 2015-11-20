@@ -9,7 +9,7 @@ package savethecity.model;
  *
  * @author Alicia
  */
-class Scene {
+public class Scene {
 
     void setDescription(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

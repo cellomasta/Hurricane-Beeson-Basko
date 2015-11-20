@@ -13,6 +13,7 @@ import savethecity.model.Map;
 import savethecity.model.Players;
 import savethecity.model.Tiles;
 import savethecity.model.Tiles.SceneType;
+import savethecity.model.Scene;
 
 /**
  *
@@ -49,8 +50,8 @@ public class GameControl {
      * @param map
      * @param scenes
      */
-    public static void assignScenesToLocations(Map map, Map.Scene[] scenes) {
-        Location[][] locations = map.getLocations();
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Tiles[][] locations = map.getLocations();
         
         //start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);

@@ -6,7 +6,6 @@
 package savethecity;
 
 import savethecity.model.Character;
-import savethecity.model.Item;
 import savethecity.model.Players;
 import savethecity.model.Tiles;
 import savethecity.model.Map;

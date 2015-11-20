@@ -21,6 +21,12 @@ public class Tiles implements Serializable{
     private Scene scene;
     private ArrayList<Character> characters;
     
+    public void setScene(Scene s){
+        scene = s;
+    }
+    public Scene getScene(){
+        return scene;
+    }
     private static Scene[] createScenes(){
         Game game = SaveTheCity.getCurrentGame();
         

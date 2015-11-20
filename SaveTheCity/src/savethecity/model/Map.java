@@ -139,15 +139,8 @@ public class Map implements Serializable{
         return true;
     }
 
-    public DocumentationTool.Location[][] getLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Tiles[][] getLocations() {
+        return locations;
     }
-
-    private static class Scene {
-
-        public Scene() {
-        }
-    }
-    
     
 }
