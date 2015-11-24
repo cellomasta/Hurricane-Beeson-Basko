@@ -13,15 +13,25 @@ import java.io.Serializable;
  */
 public class InventoryItem implements Serializable {
     public String description;
-    public double quantityHeld;
+    public int quantityHeld;
+    public int value;
 
     //Need to find alternate method.
     private void setDescription(String batarang) {
         System.out.println("batarang descripiton.");
     }
 
-        
+    public void setValue(int tVal){
+        value = tVal;
+    }    
     
+    public int getValue(){
+        return value;
+    }
+
+    public int getTotalValue(){
+        return value * quantityHeld;
+    }
     
     public enum Item {
         batarang,
@@ -56,7 +66,7 @@ public class InventoryItem implements Serializable {
         return inventory;
     }
     
-     public void setQuantityHeld(double quantityHeld) {
+     public void setQuantityHeld(int quantityHeld) {
         this.quantityHeld = quantityHeld;
     }
 
@@ -64,7 +74,7 @@ public class InventoryItem implements Serializable {
         return description;
     }
 
-    public double getQuantityHeld() {
+    public int getQuantityHeld() {
         return quantityHeld;
     }
     
