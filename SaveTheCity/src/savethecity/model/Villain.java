@@ -13,10 +13,17 @@ import java.util.Objects;
  * @author Alicia
  */
 public class Villain implements Serializable{
-     private Character character;
+    private Character character;
     private Tiles tile;
+    public String name;
+    public int villainHealth;
+    public int length;
     
     public Villain(){
+    }
+
+    public Villain(String mystique, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Character getCharacter() {

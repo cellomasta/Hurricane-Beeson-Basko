@@ -7,6 +7,8 @@ package savethecity.control;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import java.util.ArrayList;
+import savethecity.model.Villain;
 
 /**
  *
@@ -25,20 +27,32 @@ public class BattleController {
         
     }
     
-    public ArrayList<Item> addVillainHealth() {
+    public ArrayList<Villain> addVillainHealth() {
         
         //create ArrayList with villainHealth
-        ArrayList<Item> villainHealthList = new ArrayList<>();
+        Villain[] villain = new Villain[6];
+        ArrayList<Villain> villainHealth = new ArrayList<>();
         
         //add objects to ArrayList
-        Item mystique = new Item("Mystique", 20);
-        villainHealthList.add(mystique);
-        villainHealthList.add(new Item("DoctorOctopus", 20));
-        villainHealthList.add(new Item("MisterFreeze", 25));
-        villainHealthList.add(new Item("GreenGoblin", 25));
-        villainHealthList.add(new Item("Loki", 30));
-        villainHealthList.add(new Item("DemonHead", 50));
+        villainHealth.add(new Villain("Mystique",20));
+        villainHealth.add(new Villain("DoctorOctopus", 20));
+        villainHealth.add(new Villain("MisterFreeze", 25));
+        villainHealth.add(new Villain("GreenGoblin", 25));
+        villainHealth.add(new Villain("Loki", 30));
+        villainHealth.add(new Villain("DemonHead", 50));
         
-        return villainHealthList;
+        return villainHealth;
     }
+    
+    public void iterateVillainHealth(ArrayList<Villain> villainHealth){
+        double average = 0;
+        int sum = 0;
+        for(Villain villain : villainHealth){
+            sum += villain.villainHealth;
+            average = sum / villain.length;
+                      
+        }
+        System.out.println("Average Villain attack is " + average + ".");
+    }
+    
 }
