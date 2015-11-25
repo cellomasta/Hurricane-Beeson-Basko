@@ -28,6 +28,7 @@ public class FightView extends View {
                 + "\n1 - Once"
                 + "\n2 - Twice"
                 + "\n3 - Thrice"
+                + "\nV - Average Villain Health"
                 + "\nE - Exit - Give up and call the coroner"
                 + "\n--------------------------------------------");
         }
@@ -49,6 +50,8 @@ public class FightView extends View {
             case '3':
                 this.playerAttack(3);
                 break;
+            case 'V':
+                this.getClass();
             case 'E':
                 return true;
             default:

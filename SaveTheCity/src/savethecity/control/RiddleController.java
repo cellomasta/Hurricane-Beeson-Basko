@@ -6,6 +6,9 @@
 package savethecity.control;
 
 import java.text.DecimalFormat;
+import savethecity.exceptions.RiddleControlException;
+import savethecity.model.Map;
+import savethecity.model.Tiles;
 
 
 
@@ -26,7 +29,7 @@ public class RiddleController {
     /*Volume of Container
     *final double INCH_TO_GALLON = 0.004329;*/
     
-    public double userVolume(double userWeightInPounds, int AVG_DENSITY, double GRAMS_PER_POUND, double CC_PER_CUBIC_FOOT) {
+    public double userVolume(double userWeightInPounds, int AVG_DENSITY, double GRAMS_PER_POUND, double CC_PER_CUBIC_FOOT) throws RiddleControlException {
         if (userWeightInPounds >= 0){
             double userMass = userWeightInPounds * GRAMS_PER_POUND;
             double userVolumeLong = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
@@ -36,10 +39,10 @@ public class RiddleController {
             return userVolume;
         }
         else{
-            return -1;
+            throw new RiddleControlException("Volume must be greater than zero.");
         }
     }
-    public double containerVolume(double containerLength, double containerWidth, double containerHeight, double INCH_TO_GALLON){
+    public double containerVolume(double containerLength, double containerWidth, double containerHeight, double INCH_TO_GALLON) throws RiddleControlException {
         double volumeOfBox = containerLength * containerWidth * containerHeight;
         if (volumeOfBox > 0){
             double gallonCapacityLong = volumeOfBox * INCH_TO_GALLON;
@@ -49,8 +52,20 @@ public class RiddleController {
             return gallonCapacity;
         }
         else{
-            return -1;
+            throw new RiddleControlException("Volume must be greater than zero.");
         }
     }
     
+    //Assign questions to locations.
+    public static void assignQuestionsToLocations(Map map) {
+        Tiles[][] locations = map.getLocations();
+        
+        locations[1][2].setRiddle();
+        locations[2][6].setRiddle();
+        locations[5][0].setRiddle();
+        locations[6][0].setRiddle();
+        locations[6][6].setRiddle();
+        
+        map.setLocations(locations);
+    }   
 }

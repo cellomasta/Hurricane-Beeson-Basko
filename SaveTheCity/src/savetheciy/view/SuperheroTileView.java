@@ -6,6 +6,8 @@
 package savetheciy.view;
 
 import java.util.Scanner;
+import savethecity.control.RiddleController;
+import savethecity.model.Map;
 
 /**
  * This class displays to the user when they land on a SuperheroTile, which
@@ -27,6 +29,7 @@ public class SuperheroTileView extends View {
     
     //Call the riddleController to load a riddle.
     public void getRiddle (){
+        
         System.out.println("I need to ask a question here, and get your input.");
         
     }
@@ -37,6 +40,7 @@ public class SuperheroTileView extends View {
         double userInput = keyboard.nextDouble();
         //NEEDS TO BE CHANGED TO ACCESS LOADED RIDDLE.
         double riddleAnswer = -1;
+        
         //See if riddle answer is same as userInput.
         if (userInput == riddleAnswer){
             return true;

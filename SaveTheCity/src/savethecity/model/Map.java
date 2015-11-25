@@ -142,5 +142,7 @@ public class Map implements Serializable{
     public Tiles[][] getLocations() {
         return locations;
     }
-    
+    public void setLocations(Tiles[][] tLocations){
+        locations = tLocations;
+    }
 }

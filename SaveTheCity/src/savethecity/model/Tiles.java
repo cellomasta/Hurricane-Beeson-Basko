@@ -58,6 +58,10 @@ public class Tiles implements Serializable{
         else
             System.out.print(" ?? ");
     }
+
+    public void setRiddle() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public enum SceneType {
         start,
