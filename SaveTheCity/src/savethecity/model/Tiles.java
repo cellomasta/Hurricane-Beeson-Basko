@@ -9,60 +9,77 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import savethecity.SaveTheCity;
+import savethecity.exceptions.RiddleControlException;
+
 /**
  *
  * @author willnelson
  */
-public class Tiles implements Serializable{
-    
-    private int row;
-    private int column;
+public class Tiles implements Serializable {
+
     private boolean visited;
     private Scene scene;
+    private String riddle;
+    private double answer;
     private ArrayList<Character> characters;
-    
-    public void setScene(Scene s){
+
+    public void setScene(Scene s) {
         scene = s;
     }
-    public Scene getScene(){
+
+    public Scene getScene() {
         return scene;
     }
-    private static Scene[] createScenes(){
+
+    public double getAnswer(){
+        return answer;
+    }
+    
+    public void getRiddle()
+            throws RiddleControlException {
+        if (riddle == null) {
+            return;
+        }
+        throw new RiddleControlException(riddle);
+    }
+
+    private static Scene[] createScenes() {
         Game game = SaveTheCity.getCurrentGame();
-        
+
         Scene[] scenes = new Scene[SceneType.values().length];
-        
+
         Scene startingScene = new Scene();
         startingScene.setDescription(
-            "\nWelcome.  Your city is being attacked by Villains."
-            +"If you are going to save your city, you will need the"
-            +"help of Heroes.  Better go and find some...good luck.");
+                "\nWelcome.  Your city is being attacked by Villains."
+                + "If you are going to save your city, you will need the"
+                + "help of Heroes.  Better go and find some...good luck.");
         startingScene.setMapSymbol(" START ");
         startingScene.setBlocked(false);
         scenes[SceneType.start.ordinal()] = startingScene;
-        
+
         Scene finishScene = new Scene();
         finishScene.setDescription(
-            "\nCongratulations!  You have saved the city!");
+                "\nCongratulations!  You have saved the city!");
         finishScene.setMapSymbol(" END ");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
         return null;
     }
-    
-    public void displayTile()
-    {       
+
+    public void displayTile() {
         //TODO: Print the contents of the tile
-        if(visited)
+        if (visited) {
             System.out.print(" TT "); // <== HERE!!!
-        else
+        } else {
             System.out.print(" ?? ");
+        }
     }
 
-    public void setRiddle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setRiddle(String tRiddle, double tAnswer) {
+        riddle = tRiddle;
+        answer = tAnswer;
     }
-    
+
     public enum SceneType {
         start,
         Batman,
@@ -85,14 +102,14 @@ public class Tiles implements Serializable{
         empty,
         finish
     }
-    
+
     //class instance variables
     private String heroName;
     private String villainName;
     private String itemTile;
     private String emptyTile;
     private String rescueTile;
-    
+
     private Hero hero;
     private Villain villain;
     private Captive captive;
@@ -119,11 +136,11 @@ public class Tiles implements Serializable{
 
     public Captive getCaptive() {
         return captive;
-    }    
+    }
 
     public Tiles() {
     }
-    
+
     public String getHeroName() {
         return heroName;
     }
@@ -179,8 +196,6 @@ public class Tiles implements Serializable{
     public String toString() {
         return "Tiles{" + "heroName=" + heroName + ", villainName=" + villainName + ", itemTile=" + itemTile + ", emptyTile=" + emptyTile + ", rescueTile=" + rescueTile + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -221,6 +236,4 @@ public class Tiles implements Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-   
 }

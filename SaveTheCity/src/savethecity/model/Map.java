@@ -14,14 +14,14 @@ import savethecity.control.GameControl;
  * @author willnelson
  */
 public class Map implements Serializable{
-
+    
     private static Scene[] createScenes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     //class instance variables
-    private double rowTile;
-    private double columnTile;
+    private int rowTile;
+    private int columnTile;
     private Tiles[][] locations;
     
     private static Map createMap(){
@@ -37,6 +37,9 @@ public class Map implements Serializable{
         return map;
     }
     
+    public Tiles getCurrentLocation(){
+        return locations[rowTile][columnTile];
+    }
     
     //private Map[] map;
 
@@ -91,7 +94,7 @@ public class Map implements Serializable{
         return rowTile;
     }
 
-    public void setRowTile(double rowTile) {
+    public void setRowTile(int rowTile) {
         this.rowTile = rowTile;
     }
 
@@ -99,7 +102,7 @@ public class Map implements Serializable{
         return columnTile;
     }
 
-    public void setColumnTile(double columnTile) {
+    public void setColumnTile(int columnTile) {
         this.columnTile = columnTile;
     }
 

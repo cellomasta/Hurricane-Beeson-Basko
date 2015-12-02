@@ -5,12 +5,13 @@
  */
 package savethecity.control;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import java.text.DecimalFormat;
+import java.util.Scanner;
 import savethecity.exceptions.RiddleControlException;
 import savethecity.model.Map;
 import savethecity.model.Tiles;
-
-
 
 /**
  *
@@ -20,54 +21,82 @@ public class RiddleController {
     //Randomly select from available functions
     //int which = (int)(Math.random() * 1);
     //switch(which){
-    
+
     //Calculate Volume of User
-    /*final int AVG_DENSITY = 1;
-    *final double GRAMS_PER_POUND = 453.6;
-    *final double CC_PER_CUBIC_FOOT = 28316.8;*/
-    
-    /*Volume of Container
-    *final double INCH_TO_GALLON = 0.004329;*/
-    
-    public double userVolume(double userWeightInPounds, int AVG_DENSITY, double GRAMS_PER_POUND, double CC_PER_CUBIC_FOOT) throws RiddleControlException {
-        if (userWeightInPounds >= 0){
-            double userMass = userWeightInPounds * GRAMS_PER_POUND;
-            double userVolumeLong = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
+    final int AVG_DENSITY = 1;
+    final int GRAMS_PER_POUND = 453;
+    final int CC_PER_CUBIC_FOOT = 283168;
+
+    /*Volume of Container*/
+    final double INCH_TO_GALLON = 0.004329;
+
+    public String userVolume() throws RiddleControlException {
+        Scanner keyboard = new Scanner(System.in);
+
+        int userWeightInPounds = keyboard.nextInt();
+        if (userWeightInPounds >= 0) {
+            int userMass = userWeightInPounds * GRAMS_PER_POUND;
+            int userVolumeLong = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
             DecimalFormat df = new DecimalFormat("#.00");
             String userVolumeString = df.format(userVolumeLong); //Math rounding to two decimal places.
-            double userVolume = Double.parseDouble(userVolumeString);
-            return userVolume;
-        }
-        else{
+            //int userVolume = Integer.parseInt(userVolumeString);
+            //return userVolume;
+            return userVolumeString;
+        } else {
             throw new RiddleControlException("Volume must be a number greater than zero.");
         }
     }
-    public double containerVolume(double containerLength, double containerWidth, double containerHeight, double INCH_TO_GALLON) throws RiddleControlException {
-        double volumeOfBox = containerLength * containerWidth * containerHeight;
-        if (volumeOfBox > 0){
+
+    public String containerVolume() throws RiddleControlException {
+        Scanner keyboard = new Scanner(System.in);
+
+        int containerLength = keyboard.nextInt();
+        int containerWidth = keyboard.nextInt();
+        int containerHeight = keyboard.nextInt();
+        int volumeOfBox = containerLength * containerWidth * containerHeight;
+        if (volumeOfBox > 0) {
             double gallonCapacityLong = volumeOfBox * INCH_TO_GALLON;
             DecimalFormat df = new DecimalFormat("#.00");
             String gallonCapacityString = df.format(gallonCapacityLong); //rounding to two decimal places.
-            double gallonCapacity = Double.parseDouble(gallonCapacityString);
-            return gallonCapacity;
-        }
-        else{
+            //double gallonCapacity = Double.parseDouble(gallonCapacityString);
+            //return gallonCapacity;
+            return gallonCapacityString;
+        } else {
             throw new RiddleControlException("Volume must be a number greater than zero.");
         }
     }
-    
+
+    public String EQSolver() {
+        Scanner keyboard = new Scanner(System.in);
+
+        int multiplier = keyboard.nextInt();
+        int EQ = multiplier * 7 + 6;
+        String EQout = Integer.toString(EQ);
+
+            return EQout;
+        }
+
+    public String AnswerSolver() {
+        Scanner keyboard = new Scanner(System.in);
+
+        int input = keyboard.nextInt();
+        int ans = 8 * 7 + 34;
+        String out = Integer.toString(ans);
+
+       return out;
+    }
+
     //Assign questions to locations.
-    public static void assignQuestionsToLocations(Map map) {
+    public void assignQuestionsToLocations(Map map) throws RiddleControlException {
         Tiles[][] locations = map.getLocations();
-        
-        locations[1][2].setRiddle();
-        locations[2][6].setRiddle();
-        locations[5][0].setRiddle();
-        locations[6][0].setRiddle();
-        locations[6][6].setRiddle();
-        
+
+        locations[1][2].setRiddle(userVolume(), 223);
+        locations[2][6].setRiddle(containerVolume(), 234);
+        locations[5][0].setRiddle(EQSolver(), 48);
+        locations[6][0].setRiddle(AnswerSolver(), 90);
+        //locations[6][6].setRiddle();
+
         map.setLocations(locations);
-        
-        
-    }   
+
+    }
 }
