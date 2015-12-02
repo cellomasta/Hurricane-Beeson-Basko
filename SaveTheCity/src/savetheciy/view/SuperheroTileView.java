@@ -7,7 +7,9 @@ package savetheciy.view;
 
 import java.util.Scanner;
 import savethecity.control.RiddleController;
+import savethecity.exceptions.RiddleControlException;
 import savethecity.model.Map;
+import savethecity.model.Tiles;
 
 /**
  * This class displays to the user when they land on a SuperheroTile, which
@@ -28,18 +30,30 @@ public class SuperheroTileView extends View {
     }
     
     //Call the riddleController to load a riddle.
-    public void getRiddle (){
+    public void getRiddle (Tiles[][] locations){
         
+        //String locations.setRiddle();
         System.out.println("I need to ask a question here, and get your input.");
         
     }
+    public void checkRiddleAnswer () throws RiddleControlException{
+        //get riddle answer from riddle controller
+        //check for accuracy
+        //throw/propagate exception up to try...catch statement.
+    }
+    
             
     @Override
     public boolean doAction(Object obj) {
         Scanner keyboard = new Scanner(System.in);
         double userInput = keyboard.nextDouble();
-        //NEEDS TO BE CHANGED TO ACCESS LOADED RIDDLE.
-        double riddleAnswer = -1;
+        double riddleAnswer = -1;//how to access the riddle set to the tile??
+       
+        try {
+            //RiddleController.getRiddle(Tiles[][] locations);
+        } catch (RiddleControlException re){
+            System.out.println(re.getMessage());
+        }
         
         //See if riddle answer is same as userInput.
         if (userInput == riddleAnswer){

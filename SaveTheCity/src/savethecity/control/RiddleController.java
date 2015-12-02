@@ -39,7 +39,7 @@ public class RiddleController {
             return userVolume;
         }
         else{
-            throw new RiddleControlException("Volume must be greater than zero.");
+            throw new RiddleControlException("Volume must be a number greater than zero.");
         }
     }
     public double containerVolume(double containerLength, double containerWidth, double containerHeight, double INCH_TO_GALLON) throws RiddleControlException {
@@ -52,7 +52,7 @@ public class RiddleController {
             return gallonCapacity;
         }
         else{
-            throw new RiddleControlException("Volume must be greater than zero.");
+            throw new RiddleControlException("Volume must be a number greater than zero.");
         }
     }
     
@@ -67,5 +67,7 @@ public class RiddleController {
         locations[6][6].setRiddle();
         
         map.setLocations(locations);
+        
+        
     }   
 }

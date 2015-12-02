@@ -46,7 +46,13 @@ public class SaveTheCity {
         
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
+        try{
         startProgramView.startProgram();
+        }catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.startProgram();
+        }
         
         /*Character characterOne = new Character();
         Item itemOne = new Item();
