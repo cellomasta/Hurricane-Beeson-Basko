@@ -5,6 +5,8 @@
  */
 package savetheciy.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import savethecity.SaveTheCity;
 import savethecity.exceptions.RiddleControlException;
@@ -17,6 +19,9 @@ import savethecity.model.Tiles;
  * @author willnelson
  */
 public class SuperheroTileView extends View {
+
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
 
     public SuperheroTileView(String promptMessage) {
         super("\n"
@@ -32,19 +37,22 @@ public class SuperheroTileView extends View {
     public void getRiddle(Tiles[][] locations) {
 
         //String locations.setRiddle();
-        System.out.println("I need to ask a question here, and get your input.");
+        this.console.println("I need to ask a question here, and get your input.");
 
     }
 
     @Override
     public boolean doAction(Object obj) {
-        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
+
         Tiles t = SaveTheCity.getCurrentGame().getMap().getCurrentLocation();
         try {
             t.getRiddle();
         } catch (RiddleControlException re) {
-            System.out.println(re.getMessage());
-            double userInput = keyboard.nextDouble();
+            this.console.println(re.getMessage());
+            double userInput = keyboard.readDouble();
             double riddleAnswer = t.getAnswer();
             return (userInput == riddleAnswer);
         }

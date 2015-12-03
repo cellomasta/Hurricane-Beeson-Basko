@@ -18,7 +18,7 @@ public class InventoryItem implements Serializable {
 
     //Need to find alternate method.
     private void setDescription(String batarang) {
-        System.out.println("batarang descripiton.");
+        this.console.println("batarang descripiton.");
     }
 
     public void setValue(int tVal){

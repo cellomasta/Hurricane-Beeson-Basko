@@ -5,10 +5,13 @@
  */
 package savethecity.control;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import savethecity.SaveTheCity;
 import savethecity.exceptions.RiddleControlException;
 import savethecity.model.Map;
 import savethecity.model.Tiles;
@@ -22,6 +25,9 @@ public class RiddleController {
     //int which = (int)(Math.random() * 1);
     //switch(which){
 
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
+
     //Calculate Volume of User
     final int AVG_DENSITY = 1;
     final int GRAMS_PER_POUND = 453;
@@ -31,7 +37,9 @@ public class RiddleController {
     final double INCH_TO_GALLON = 0.004329;
 
     public String userVolume() throws RiddleControlException {
-        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
 
         int userWeightInPounds = keyboard.nextInt();
         if (userWeightInPounds >= 0) {
@@ -48,7 +56,9 @@ public class RiddleController {
     }
 
     public String containerVolume() throws RiddleControlException {
-        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
 
         int containerLength = keyboard.nextInt();
         int containerWidth = keyboard.nextInt();
@@ -67,23 +77,27 @@ public class RiddleController {
     }
 
     public String EQSolver() {
-        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
 
         int multiplier = keyboard.nextInt();
         int EQ = multiplier * 7 + 6;
         String EQout = Integer.toString(EQ);
 
-            return EQout;
-        }
+        return EQout;
+    }
 
     public String AnswerSolver() {
-        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
 
         int input = keyboard.nextInt();
         int ans = 8 * 7 + 34;
         String out = Integer.toString(ans);
 
-       return out;
+        return out;
     }
 
     //Assign questions to locations.

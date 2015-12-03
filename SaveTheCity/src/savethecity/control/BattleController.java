@@ -15,6 +15,7 @@ import savethecity.model.Villain;
  * @author Alicia
  */
 public class BattleController {
+    
     public Boolean heroAttack(double heroDamage, double numberOfAttacks, double villainHealth){
         	
         double villainHealthEnd = villainHealth - heroDamage * numberOfAttacks;
@@ -52,7 +53,7 @@ public class BattleController {
             average = sum / villain.length;
                       
         }
-        System.out.println("Average Villain attack is " + average + ".");
+        this.console.println("Average Villain attack is " + average + ".");
     }
     
 }

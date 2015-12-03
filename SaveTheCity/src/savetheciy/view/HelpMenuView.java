@@ -47,22 +47,22 @@ public class HelpMenuView extends View {
             case 'E':
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
     }
         return false;
     }
     private void displayGameObejective(){
-        System.out.println("*** Display game objectives ***");
+        this.console.println("*** Display game objectives ***");
 
     }
     
     private void displayMoveInstructions(){
-        System.out.println("*** Display how to move ***");
+        this.console.println("*** Display how to move ***");
     }
     
     private void displayCombatInstructions(){
-        System.out.println("*** Diplay Combat instructions ***");
+        this.console.println("*** Diplay Combat instructions ***");
     }
           
 }

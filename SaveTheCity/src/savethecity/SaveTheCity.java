@@ -81,7 +81,7 @@ public class SaveTheCity {
         StartProgramView startProgramView = new StartProgramView();
         try {
             SaveTheCity.inFile = new BufferedReader(new InputStreamReader(System.in));
-            SaveTheCity.outFile = new PrintWriter(System.out, true);
+            SaveTheCity.outFile = new PrintWriter(this.console, true);
 
             //open log file
             String filePath = "log.txt";
@@ -89,7 +89,7 @@ public class SaveTheCity {
             
             startProgramView.startProgram();
         } catch (Throwable te) {
-            System.out.println(te.getMessage());
+            this.console.println(te.getMessage());
             te.printStackTrace();
             startProgramView.startProgram();
         } finally {
@@ -104,7 +104,7 @@ public class SaveTheCity {
                     SaveTheCity.logFile.close();
 
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                this.console.println("Error closing files");
                 return;
             }
         }

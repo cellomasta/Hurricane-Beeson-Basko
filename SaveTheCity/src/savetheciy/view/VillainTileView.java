@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Alicia
  */
 public class VillainTileView extends View {
-    
+
     public VillainTileView(String promptMessage) {
         super("\n"
                 + "\n------------------------------"
@@ -22,26 +22,28 @@ public class VillainTileView extends View {
                 + "\nAnswer the question below to free them:"
                 + "\n------------------------------");
     }
-    
+
     //Call the riddleController to load a riddle.
-    public void getRiddle (){
-        System.out.println("Ask a question and get the user input.");
-        
+    public void getRiddle() {
+        this.console.println("Ask a question and get the user input.");
+
     }
-    
+
     @Override
     public boolean doAction(Object obj) {
-        Scanner keyboard = new Scanner(System.in);
-        double userInput = keyboard.nextDouble();
+        boolean valid = false; //indicates if the input has been retrieved
+        String userInput = null;
+        userInput = this.keyboard.readLine();
+
+        double userInput = keyboard.readDouble();
         //NEEDS TO BE CHANGED TO ACCESS LOADED RIDDLE.
         double riddleAnswer = -1;
         //See if riddle answer is same as userInput.
-        if (userInput == riddleAnswer){
+        if (userInput == riddleAnswer) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-}
 
+}

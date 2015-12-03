@@ -69,9 +69,9 @@ public class Tiles implements Serializable {
     public void displayTile() {
         //TODO: Print the contents of the tile
         if (visited) {
-            System.out.print(" TT "); // <== HERE!!!
+            this.console.print(" TT "); // <== HERE!!!
         } else {
-            System.out.print(" ?? ");
+            this.console.print(" ?? ");
         }
     }
 

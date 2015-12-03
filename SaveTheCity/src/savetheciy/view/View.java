@@ -16,7 +16,6 @@ import savethecity.SaveTheCity;
  */
 public abstract class View implements ViewInterface {
   
-    Scanner keyboard = new Scanner(System.in); //keyboard input
     private String promptMessage;
     
     protected final BufferedReader keyboard = SaveTheCity.getInFile();
@@ -32,7 +31,7 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         
         do{
-            System.out.println(this.promptMessage); //print message
+            this.console.println(this.promptMessage); //print message
             value = this.getInput(); //get the user selection
             done = this.doAction(value); //do action based on selection
         }
@@ -42,7 +41,7 @@ public abstract class View implements ViewInterface {
         /* TEAM DISPLAY FUNCTION
         char selection = ' ';
         do{
-            System.out.println(this.promptMessage); //display the menu
+            this.console.println(this.promptMessage); //display the menu
             
             String input = this.getInput();
             selection = input.charAt(0);
@@ -61,15 +60,15 @@ public abstract class View implements ViewInterface {
         while(!valid) { //while a valid input has not been retrieved
             
             //prompt for user input
-            System.out.println("Enter menu selection here:");
+            this.console.println("Enter menu selection here:");
             
             //get the input from the keyboard
-            userInput = keyboard.nextLine();
+            userInput = this.keyboard.readLine();
             userInput = userInput.trim(); //remove blank spaces
             
             //if the input is invalid (more than one character in length)
             if (userInput.length() > 1) {
-                System.out.println("Invalid input - enter one character only");
+                this.console.println("Invalid input - enter one character only");
                 continue; //and repeat again
             }
             break; //out of the (exit) the repetition

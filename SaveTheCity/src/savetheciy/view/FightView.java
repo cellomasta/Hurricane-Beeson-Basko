@@ -16,7 +16,7 @@ public class FightView extends View {
     public void displayFightVillain(){
         //Get name of villain the player is facing
         Object villainFighting = null;
-        System.out.println("\n*Oh no! " + villainFighting+ " is trying to beat you up!*");
+        this.console.println("\n*Oh no! " + villainFighting+ " is trying to beat you up!*");
         
     }
         public FightView(){
@@ -55,15 +55,15 @@ public class FightView extends View {
             case 'E':
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
     }
    return false;
 }
 
     private void playerAttack(int i) {
-        System.out.println("Player attack number multiplied by attack strength, total subtracted from villain health.");
-        System.out.println("If villain health is less than or equal to zero, villain is defeated.");
+        this.console.println("Player attack number multiplied by attack strength, total subtracted from villain health.");
+        this.console.println("If villain health is less than or equal to zero, villain is defeated.");
     }
     
 }

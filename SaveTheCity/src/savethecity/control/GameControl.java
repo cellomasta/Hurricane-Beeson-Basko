@@ -41,7 +41,7 @@ public class GameControl {
     }
     
     private static InventoryItem[] createInventoryList() {
-        System.out.println("createInventoryList called in GameControl");
+        this.console.println("createInventoryList called in GameControl");
         return null;
     }
   

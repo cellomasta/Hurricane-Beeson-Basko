@@ -15,7 +15,7 @@ import savethecity.SaveTheCity;
 //public class GameMenuView {
     
   //  void displayMenu(){
-    //    System.out.println("displayMenu stub"); 
+    //    this.console.println("displayMenu stub"); 
     //}
 //}
 public class GameMenuView extends View {
@@ -49,7 +49,7 @@ public class GameMenuView extends View {
             case 'E':
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
     }
         return false;
@@ -58,15 +58,15 @@ public class GameMenuView extends View {
         //get the sorted list of inventory item for the current gam
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" +
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t" +
                            "Required" + "\t" +
                            "In Stock");
         
         //for each inventory item
         for (InventoryItem inventoryItem : inventory){
             //Display the description, the requried amount and amount in stock 
-            System.out.println(inventoryItem.getDescription());
+            this.console.println(inventoryItem.getDescription());
         }
     }
 

@@ -63,23 +63,23 @@ public class LocationMenuView extends View {
             case 'E':
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
     }
         return false;
 }
     
     private void displaySearchForItemsHere(){
-        System.out.println("*** Display menu of items you have ***");
+        this.console.println("*** Display menu of items you have ***");
 
     }
     
     private void displayViewInventory(){
-        System.out.println("*** Display inventory ***");
+        this.console.println("*** Display inventory ***");
     }
     
     private void displayViewHeroTeam(){
-        System.out.println("*** Diplay Heros on your team ***");
+        this.console.println("*** Diplay Heros on your team ***");
     }
     
 }

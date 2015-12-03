@@ -47,19 +47,19 @@ public class Map implements Serializable{
     }
 
     public void displayMap() {
-        System.out.println("   1 2 3 4 5 6");
-        System.out.println("--------------");
+        this.console.println("   1 2 3 4 5 6");
+        this.console.println("--------------");
         for(int r = 0; r < locations.length; r++) {
-            System.out.print(r+1);
-            System.out.print(" |");
+            this.console.print(r+1);
+            this.console.print(" |");
             for(int c = 0; c < locations[r].length; c++) {
                 locations[r][c].displayTile(); 
                 if(c < locations[r].length - 1)
-                    System.out.print('|');
+                    this.console.print('|');
             }
             if(r < locations.length - 1)
-                System.out.print("\n--------------");
-            System.out.println();
+                this.console.print("\n--------------");
+            this.console.println();
         }
         
     }
@@ -67,7 +67,7 @@ public class Map implements Serializable{
     public Map(int rowTile, int columnTile) {
         
         if (rowTile < 1 || columnTile < 1) {
-            System.out.println("The number of rows/columns must be > 0.");
+            this.console.println("The number of rows/columns must be > 0.");
             return;
         }
         this.rowTile = rowTile;
