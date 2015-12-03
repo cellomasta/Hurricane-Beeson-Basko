@@ -5,6 +5,12 @@
  */
 package savethecity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import savethecity.model.Character;
 import savethecity.model.Players;
 import savethecity.model.Tiles;
@@ -15,15 +21,43 @@ import savethecity.model.Captive;
 import savethecity.model.Game;
 import savetheciy.view.StartProgramView;
 
-
-
 /**
  *
  * @author CHRIS
  */
 public class SaveTheCity {
-    
+
     private static Game currentGame = null;
+    private static Players player = null;
+
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+
+    private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        SaveTheCity.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        SaveTheCity.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        SaveTheCity.inFile = inFile;
+    }
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -40,109 +74,39 @@ public class SaveTheCity {
     public static void setPlayer(Players player) {
         SaveTheCity.player = player;
     }
-    private static Players player = null;
 
     public static void main(String[] args) {
-        
+
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
-        try{
-        startProgramView.startProgram();
-        }catch (Throwable te){
+        try {
+            SaveTheCity.inFile = new BufferedReader(new InputStreamReader(System.in));
+            SaveTheCity.outFile = new PrintWriter(System.out, true);
+
+            //open log file
+            String filePath = "log.txt";
+            SaveTheCity.logFile = new PrintWriter(filePath);
+            
+            startProgramView.startProgram();
+        } catch (Throwable te) {
             System.out.println(te.getMessage());
             te.printStackTrace();
             startProgramView.startProgram();
+        } finally {
+            try {
+                if (SaveTheCity.inFile != null) 
+                    SaveTheCity.inFile.close();
+             
+                if (SaveTheCity.outFile != null) 
+                    SaveTheCity.outFile.close();
+                
+                if (SaveTheCity.logFile != null)
+                    SaveTheCity.logFile.close();
+
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
         }
-        
-        /*Character characterOne = new Character();
-        Item itemOne = new Item();
-        Players playerOne = new Players();
-        Tiles tileOne = new Tiles();
-        Map mapOne = new Map();
-        Hero heroOne = new Hero();
-        Captive captiveOne = new Captive();
-        Villain villainOne = new Villain();
-        
-        characterOne.setName("Fred Flinstone");
-        characterOne.setAttackPower(10);
-        characterOne.setHitPoints(100);
-        String characterInfo = characterOne.toString();
-        System.out.println(characterInfo);
-        
-        itemOne.setItemPoints(5);
-        String itemInfo = itemOne.toString();
-        System.out.println(itemInfo);
-        
-        playerOne.setRank(1);
-        playerOne.setHighScore(5000);
-        String playersInfo = playerOne.toString();
-        System.out.println(playersInfo);
-        
-        tileOne.setItemTile("No");
-        tileOne.setEmptyTile("Yes");
-        tileOne.setRescueTile("No");
-        tileOne.setHeroName("Bob");
-        tileOne.setVillainName("Anti-Bob");
-        String tilesInfo = tileOne.toString();
-        System.out.println(tilesInfo);
-        
-        mapOne.setRowTile(10);
-        mapOne.setColumnTile(10);
-        mapOne.setHeroName("Bob");
-        String mapInfo = mapOne.toString();
-        System.out.println(mapInfo);
-        
-        Character characterHero = new Character();
-        characterHero.setName("Captian America");
-        characterHero.setAttackPower(10);
-        characterHero.setHitPoints(100);
-        
-        Tiles tileHero = new Tiles();
-        tileHero.setItemTile("No");
-        tileHero.setEmptyTile("Yes");
-        tileHero.setRescueTile("Grocer");
-        tileHero.setHeroName("Captain America");
-        tileHero.setVillainName("Lighting Lord");
- 
-        heroOne.setCharacter(characterHero);
-        heroOne.setTile(tileHero);
-        String heroInfo = heroOne.toString();
-        System.out.println(heroInfo);
-        
-        Character characterVillain = new Character();
-        characterVillain.setName("Clock King");
-        characterVillain.setAttackPower(20);
-        characterVillain.setHitPoints(100);
-        
-        Tiles tileVillain = new Tiles();
-        tileVillain.setItemTile("No");
-        tileVillain.setEmptyTile("Yes");
-        tileVillain.setRescueTile("Baker");
-        tileVillain.setHeroName("Black Widow");
-        tileVillain.setVillainName("Clock King");
- 
-        villainOne.setCharacter(characterVillain);
-        villainOne.setTile(tileVillain);
-        String villainInfo = villainOne.toString();
-        System.out.println(villainInfo);
-        
-        Character characterCaptive = new Character();
-        characterCaptive.setName("Clock King");
-        characterCaptive.setAttackPower(25);
-        characterCaptive.setHitPoints(100);
-        
-        Tiles tileCaptive = new Tiles();
-        tileCaptive.setItemTile("No");
-        tileCaptive.setEmptyTile("Yes");
-        tileCaptive.setRescueTile("Banker");
-        tileCaptive.setHeroName("Superman");
-        tileCaptive.setVillainName("Onslaught");
- 
-        captiveOne.setCharacter(characterCaptive);
-        captiveOne.setTile(tileCaptive);
-        String captiveInfo = captiveOne.toString();
-        System.out.println(captiveInfo);
-                */
     }
-    
 }

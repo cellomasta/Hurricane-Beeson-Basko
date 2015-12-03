@@ -5,7 +5,10 @@
  */
 package savetheciy.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import savethecity.SaveTheCity;
 
 /**
  * This is a SuperClass for the view classes
@@ -15,6 +18,9 @@ public abstract class View implements ViewInterface {
   
     Scanner keyboard = new Scanner(System.in); //keyboard input
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
     
     public View(String promptMessage){
         this.promptMessage = promptMessage;
