@@ -9,15 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import savethecity.model.Character;
 import savethecity.model.Players;
-import savethecity.model.Tiles;
-import savethecity.model.Map;
-import savethecity.model.Villain;
-import savethecity.model.Hero;
-import savethecity.model.Captive;
 import savethecity.model.Game;
 import savetheciy.view.StartProgramView;
 
@@ -75,36 +67,38 @@ public class SaveTheCity {
         SaveTheCity.player = player;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
         try {
             SaveTheCity.inFile = new BufferedReader(new InputStreamReader(System.in));
-            SaveTheCity.outFile = new PrintWriter(this.console, true);
+            SaveTheCity.outFile = new PrintWriter(System.out, true);
 
             //open log file
             String filePath = "log.txt";
             SaveTheCity.logFile = new PrintWriter(filePath);
-            
+
             startProgramView.startProgram();
         } catch (Throwable te) {
-            this.console.println(te.getMessage());
-            te.printStackTrace();
+            System.out.println(te.getMessage());
             startProgramView.startProgram();
         } finally {
             try {
-                if (SaveTheCity.inFile != null) 
+                if (SaveTheCity.inFile != null) {
                     SaveTheCity.inFile.close();
-             
-                if (SaveTheCity.outFile != null) 
+                }
+
+                if (SaveTheCity.outFile != null) {
                     SaveTheCity.outFile.close();
-                
-                if (SaveTheCity.logFile != null)
+                }
+
+                if (SaveTheCity.logFile != null) {
                     SaveTheCity.logFile.close();
+                }
 
             } catch (IOException ex) {
-                this.console.println("Error closing files");
+                System.out.println("Error closing files");
                 return;
             }
         }

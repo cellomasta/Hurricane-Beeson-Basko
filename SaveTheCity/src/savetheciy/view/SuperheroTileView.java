@@ -6,8 +6,11 @@
 package savetheciy.view;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import savethecity.SaveTheCity;
 import savethecity.exceptions.RiddleControlException;
 import savethecity.model.Tiles;
@@ -45,7 +48,11 @@ public class SuperheroTileView extends View {
     public boolean doAction(Object obj) {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
-        userInput = this.keyboard.readLine();
+        try {
+            userInput = this.keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(SuperheroTileView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         Tiles t = SaveTheCity.getCurrentGame().getMap().getCurrentLocation();
         try {

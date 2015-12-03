@@ -6,8 +6,8 @@
 package savetheciy.view;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import savethecity.SaveTheCity;
 import savethecity.control.ProgramControl;
 import savethecity.model.Players;
@@ -25,7 +25,7 @@ public class StartProgramView {
 
     }
 
-    public void startProgram() {
+    public void startProgram() throws IOException {
         //BEGIN
         //Display the banner screen
         this.displayBanner();
@@ -58,7 +58,7 @@ public class StartProgramView {
     }
     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-    private String getPlayersName() {
+    private String getPlayersName() throws IOException {
         boolean valid = false; //indicates if the name has been retrieved
         String playersName = null;
 
@@ -75,7 +75,7 @@ public class StartProgramView {
 
             //if the name is invalid (less than two character in length)
             if (playersName.length() < 2) {
-                this.console.println("Invalid name - the name must not be blank");
+                ErrorView.display(this.getClass().getName(), "Invalid name - the name must not be blank");
                 continue; //and repeat again
             }
             break; //out of the (exit) the repetition

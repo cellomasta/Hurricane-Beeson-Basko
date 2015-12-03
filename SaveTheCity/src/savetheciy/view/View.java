@@ -6,8 +6,11 @@
 package savetheciy.view;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import savethecity.SaveTheCity;
 
 /**
@@ -62,13 +65,17 @@ public abstract class View implements ViewInterface {
             //prompt for user input
             this.console.println("Enter menu selection here:");
             
-            //get the input from the keyboard
-            userInput = this.keyboard.readLine();
+            try {
+                //get the input from the keyboard
+                userInput = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             userInput = userInput.trim(); //remove blank spaces
             
             //if the input is invalid (more than one character in length)
             if (userInput.length() > 1) {
-                this.console.println("Invalid input - enter one character only");
+                ErrorView.display(this.getClass().getName(), "Invalid input - enter one character only");
                 continue; //and repeat again
             }
             break; //out of the (exit) the repetition

@@ -5,7 +5,6 @@
  */
 package savethecity.control;
 
-import javax.tools.DocumentationTool.Location;
 import savethecity.SaveTheCity;
 import savethecity.model.Game;
 import savethecity.model.InventoryItem;

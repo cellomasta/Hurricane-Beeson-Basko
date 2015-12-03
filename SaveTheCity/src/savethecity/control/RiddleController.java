@@ -6,11 +6,9 @@
 package savethecity.control;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 import java.text.DecimalFormat;
-import java.util.Scanner;
 import savethecity.SaveTheCity;
 import savethecity.exceptions.RiddleControlException;
 import savethecity.model.Map;
@@ -36,7 +34,7 @@ public class RiddleController {
     /*Volume of Container*/
     final double INCH_TO_GALLON = 0.004329;
 
-    public String userVolume() throws RiddleControlException {
+    public String userVolume() throws RiddleControlException, IOException {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
         userInput = this.keyboard.readLine();
@@ -55,7 +53,7 @@ public class RiddleController {
         }
     }
 
-    public String containerVolume() throws RiddleControlException {
+    public String containerVolume() throws RiddleControlException, IOException {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
         userInput = this.keyboard.readLine();
@@ -76,7 +74,7 @@ public class RiddleController {
         }
     }
 
-    public String EQSolver() {
+    public String EQSolver() throws IOException {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
         userInput = this.keyboard.readLine();
@@ -88,7 +86,7 @@ public class RiddleController {
         return EQout;
     }
 
-    public String AnswerSolver() {
+    public String AnswerSolver() throws IOException {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
         userInput = this.keyboard.readLine();
@@ -101,7 +99,7 @@ public class RiddleController {
     }
 
     //Assign questions to locations.
-    public void assignQuestionsToLocations(Map map) throws RiddleControlException {
+    public void assignQuestionsToLocations(Map map) throws RiddleControlException, IOException {
         Tiles[][] locations = map.getLocations();
 
         locations[1][2].setRiddle(userVolume(), 223);

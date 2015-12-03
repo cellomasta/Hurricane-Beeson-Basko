@@ -5,10 +5,8 @@
  */
 package savetheciy.view;
 
-import java.util.Scanner;
 import savethecity.SaveTheCity;
 import savethecity.control.GameControl;
-import savethecity.model.Players;
 
 /**
  *
@@ -51,7 +49,7 @@ public class MainMenuView extends View {
             case 'E':
                 return true;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
     }
         return false;

@@ -6,8 +6,6 @@
 package savethecity.model;
 
 import java.io.Serializable;
-import java.util.Objects;
-import javax.tools.DocumentationTool;
 import savethecity.control.GameControl;
 /**
  *

@@ -5,7 +5,9 @@
  */
 package savetheciy.view;
 
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,21 +31,26 @@ public class VillainTileView extends View {
 
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean doAction(Object obj) {
         boolean valid = false; //indicates if the input has been retrieved
         String userInput = null;
-        userInput = this.keyboard.readLine();
+        try {
+            userInput = this.keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(VillainTileView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         double userInput = keyboard.readDouble();
         //NEEDS TO BE CHANGED TO ACCESS LOADED RIDDLE.
         double riddleAnswer = -1;
         //See if riddle answer is same as userInput.
-        if (userInput == riddleAnswer) {
-            return true;
-        } else {
-            return false;
-        }
+        return userInput == riddleAnswer;
     }
 
 }
