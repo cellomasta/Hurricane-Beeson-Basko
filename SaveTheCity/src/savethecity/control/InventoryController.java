@@ -7,6 +7,7 @@ package savethecity.control;
 
 import savethecity.model.InventoryItem;
 import java.util.ArrayList;
+import savethecity.exceptions.InventoryControllerException;
 
 /**
  *
@@ -18,8 +19,12 @@ public class InventoryController {
     public InventoryController(){
     }
 
-    public void addInventoryItem(InventoryItem item){
-       inventory.add(item); 
+    public void addInventoryItem(InventoryItem item) throws InventoryControllerException {
+       try {
+           inventory.add(item);
+       } catch (Exception e){
+           throw new InventoryControllerException(e.getMessage());
+       }
     }
     
     public int getInventoryValue()

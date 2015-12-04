@@ -23,6 +23,7 @@ import savethecity.model.Tiles;
 import savethecity.model.Tiles.SceneType;
 import savethecity.model.Scene;
 import savethecity.exceptions.GameControlException;
+import savethecity.exceptions.MapControlException;
 
 /**
  *
@@ -63,7 +64,7 @@ public class GameControl {
     protected final BufferedReader keyboard = SaveTheCity.getInFile();
     protected final PrintWriter console = SaveTheCity.getOutFile();
 
-    public static void createNewGame(Players player) {
+    public static void createNewGame(Players player) throws MapControlException {
 
         Game game = new Game();//create new game
         SaveTheCity.setCurrentGame(game);//save in SaveTheCity

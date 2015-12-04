@@ -42,6 +42,12 @@ public enum Character implements Serializable{
         this.description = description;
         coordinates = new Point (1,1);
     }
+    public String getDescription(){
+        return description;
+    }
+    public Point getCoordinates(){
+        return coordinates;
+    }
 
     
 
@@ -55,17 +61,4 @@ public enum Character implements Serializable{
     //    return hitPoints;
     //}
 
-    public String getDescription(){
-        return description;
-}
-    public Point getCoordinates(){
-        return coordinates;
-}
-
-    
-    
-    
-    
-    
-    
 }
