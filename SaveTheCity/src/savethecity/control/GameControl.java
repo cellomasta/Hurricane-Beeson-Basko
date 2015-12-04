@@ -14,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import savethecity.SaveTheCity;
+import savethecity.exceptions.BattleControllerException;
 import savethecity.model.Game;
 import savethecity.model.InventoryItem;
 import savethecity.model.Map;
@@ -43,6 +44,21 @@ public class GameControl {
                 throw new GameControlException(e.getMessage());
             }
         }
+
+    public static void getCurrentHeroes(String Filepath)
+        throws BattleControllerException{
+        Game currentHeros = null;
+        
+         try (FileInputStream flips = new FileInputStream(Filepath)) {
+                ObjectInputStream output = new ObjectInputStream(flips);
+
+                currentHeros = (Game) output.readObject(); //read the game object from file
+            } catch (FileNotFoundException fnfe) {
+                throw new BattleControllerException(fnfe.getMessage());
+            } catch (Exception e) {
+                throw new BattleControllerException(e.getMessage());
+    }
+    }
 
     protected final BufferedReader keyboard = SaveTheCity.getInFile();
     protected final PrintWriter console = SaveTheCity.getOutFile();
