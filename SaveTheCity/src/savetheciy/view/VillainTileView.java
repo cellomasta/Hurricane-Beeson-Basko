@@ -39,18 +39,22 @@ public class VillainTileView extends View {
     @Override
     public boolean doAction(Object obj) {
         boolean valid = false; //indicates if the input has been retrieved
-        String userInput = null;
+        String strInput = null;
         try {
-            userInput = this.keyboard.readLine();
+            strInput = this.keyboard.readLine();
         } catch (IOException ex) {
             Logger.getLogger(VillainTileView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        double userInput = keyboard.readDouble();
+        double dobInput = -1;
+        try{
+            dobInput = Double.parseDouble(keyboard.readLine());
+        }catch(IOException ex){
+            return false;
+        }
         //NEEDS TO BE CHANGED TO ACCESS LOADED RIDDLE.
         double riddleAnswer = -1;
         //See if riddle answer is same as userInput.
-        return userInput == riddleAnswer;
+        return dobInput == riddleAnswer;
     }
 
 }

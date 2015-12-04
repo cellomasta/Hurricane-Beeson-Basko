@@ -5,9 +5,12 @@
  */
 package savethecity.control;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import java.util.ArrayList;
+import savethecity.SaveTheCity;
 import savethecity.model.Villain;
 
 /**
@@ -15,6 +18,9 @@ import savethecity.model.Villain;
  * @author Alicia
  */
 public class BattleController {
+    
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
     
     public Boolean heroAttack(double heroDamage, double numberOfAttacks, double villainHealth){
         	

@@ -5,6 +5,8 @@
  */
 package savethecity.model;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,6 +18,9 @@ import savethecity.exceptions.RiddleControlException;
  * @author willnelson
  */
 public class Tiles implements Serializable {
+    
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
 
     private boolean visited;
     private Scene scene;

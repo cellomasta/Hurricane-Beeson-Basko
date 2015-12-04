@@ -5,13 +5,19 @@
  */
 package savethecity.model;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import savethecity.SaveTheCity;
 import savethecity.control.GameControl;
 /**
  *
  * @author willnelson
  */
 public class Map implements Serializable{
+    
+    protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
     
     private static Scene[] createScenes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -59,9 +59,14 @@ public class SuperheroTileView extends View {
             t.getRiddle();
         } catch (RiddleControlException re) {
             this.console.println(re.getMessage());
-            double userInput = keyboard.readDouble();
+            double dobInput = -1;
+            try {
+                dobInput = Double.parseDouble(keyboard.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(SuperheroTileView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             double riddleAnswer = t.getAnswer();
-            return (userInput == riddleAnswer);
+            return (dobInput == riddleAnswer);
         }
 
         return true;

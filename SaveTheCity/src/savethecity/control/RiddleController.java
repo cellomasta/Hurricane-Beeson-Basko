@@ -39,7 +39,8 @@ public class RiddleController {
         String userInput = null;
         userInput = this.keyboard.readLine();
 
-        int userWeightInPounds = keyboard.nextInt();
+        int userWeightInPounds;
+             userWeightInPounds = Integer.parseInt(keyboard.readLine());
         if (userWeightInPounds >= 0) {
             int userMass = userWeightInPounds * GRAMS_PER_POUND;
             int userVolumeLong = (userMass * AVG_DENSITY) / CC_PER_CUBIC_FOOT;
@@ -58,9 +59,12 @@ public class RiddleController {
         String userInput = null;
         userInput = this.keyboard.readLine();
 
-        int containerLength = keyboard.nextInt();
-        int containerWidth = keyboard.nextInt();
-        int containerHeight = keyboard.nextInt();
+        int containerLength;
+                containerLength = Integer.parseInt(keyboard.readLine());
+        int containerWidth;
+         containerWidth = Integer.parseInt(keyboard.readLine());
+        int containerHeight;
+        containerHeight = Integer.parseInt(keyboard.readLine());
         int volumeOfBox = containerLength * containerWidth * containerHeight;
         if (volumeOfBox > 0) {
             double gallonCapacityLong = volumeOfBox * INCH_TO_GALLON;
@@ -79,7 +83,8 @@ public class RiddleController {
         String userInput = null;
         userInput = this.keyboard.readLine();
 
-        int multiplier = keyboard.nextInt();
+        int multiplier;
+        multiplier = Integer.parseInt(keyboard.readLine());
         int EQ = multiplier * 7 + 6;
         String EQout = Integer.toString(EQ);
 
@@ -91,7 +96,8 @@ public class RiddleController {
         String userInput = null;
         userInput = this.keyboard.readLine();
 
-        int input = keyboard.nextInt();
+        int input;
+        input = Integer.parseInt(keyboard.readLine());
         int ans = 8 * 7 + 34;
         String out = Integer.toString(ans);
 

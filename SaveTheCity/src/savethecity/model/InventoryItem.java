@@ -5,7 +5,10 @@
  */
 package savethecity.model;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import savethecity.SaveTheCity;
 
 /**
  *
@@ -15,6 +18,9 @@ public class InventoryItem implements Serializable {
     public String description;
     public int quantityHeld;
     public int value;
+    
+     protected final BufferedReader keyboard = SaveTheCity.getInFile();
+    protected final PrintWriter console = SaveTheCity.getOutFile();
 
     //Need to find alternate method.
     private void setDescription(String batarang) {
@@ -40,7 +46,7 @@ public class InventoryItem implements Serializable {
         paperclip;
     }
     
-    public static InventoryItem[] createInventoryList(){
+    public InventoryItem[] createInventoryList(){
         InventoryItem[] inventory = new InventoryItem[4];
         
         InventoryItem batarang = new InventoryItem();
