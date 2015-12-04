@@ -97,7 +97,6 @@ public class MainMenuView extends View {
     }
     
     private void displayHelpMenu(){
-        //        this.console.println("*** display help menu ***");
 
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();

@@ -21,7 +21,7 @@ public class ErrorView {
 
         errorfile.println(
                 "-------------------------------------------------------"
-                + "\n - ERROR - " + errorMessage
+                + "\n - ERROR - Please reenter a value within the parameters given " + errorMessage
                 + "\n----------------------------------------------------");
         //log error
         logFile.println(className + " - " + errorMessage);

@@ -5,8 +5,6 @@
  */
 package savetheciy.view;
 
-import java.util.Scanner;
-import savethecity.SaveTheCity;
 import savethecity.control.GameControl;
 import savethecity.control.MovementController;
 
@@ -80,6 +78,19 @@ public class LocationMenuView extends View {
     
     private void displayViewHeroTeam(){
         this.console.println("*** Diplay Heros on your team ***");
+        
+        String filePath = this.getInput();
+        
+        try {
+            //start a saved game
+            GameControl.getCurrentHeroes(filePath);
+        }catch (Exception ex){
+            ErrorView.display("LocationMenuView", ex.getMessage());
+        }
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
 }
