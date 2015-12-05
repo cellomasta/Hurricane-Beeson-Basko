@@ -28,6 +28,7 @@ public class GameMenuView extends View {
                 + "\n----------------------------------"
                 + "\nT - Travel to new locations"
                 + "\nI - List of Inventory Items"
+                + "\nP - Print Inventory List"
                 + "\nE - Exit"
                 + "\n----------------------------------");
     }
@@ -45,7 +46,10 @@ public class GameMenuView extends View {
                 break;
             case 'I': 
                 this.viewInventory();
-                break;    
+                break;
+            case 'P':
+                this.printInventory();
+                break;
             case 'E':
                 return true;
             default:
@@ -96,6 +100,14 @@ public class GameMenuView extends View {
 
     void displayMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void printInventory() {
+        //Prompt user for file path
+        //get file path
+        //call printOutInventory() function to print report
+        //display success message
+        //catch runtime exceptions
     }
           
 }
