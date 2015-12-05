@@ -5,6 +5,7 @@
  */
 package savetheciy.view;
 
+import java.io.PrintWriter;
 import savethecity.control.GameControl;
 import savethecity.model.InventoryItem;
 import savethecity.SaveTheCity;
@@ -104,10 +105,25 @@ public class GameMenuView extends View {
 
     private void printInventory() {
         //Prompt user for file path
+        this.console.println("\n\nEnter the path for file where the game" + "is to be saved.");
         //get file path
+        String filePath = this.getInput();
+        try{
+           this.console.println(printOutInventory());
+           }catch (Exception ex){
+               ErrorView.display("GameMenuView", ex.getMessage());
+           }
+        }
         //call printOutInventory() function to print report
         //display success message
         //catch runtime exceptions
+    public String printOutInventory(){
+        try{
+            SaveTheCity.outFile = new PrintWriter(System.out, true);
+        }catch (Throwable e){
+            this.console.println("Error: "+ e.getMessage());
+        }
+        return null;
     }
           
 }

@@ -6,7 +6,6 @@
 package savethecity.control;
 
 import savethecity.SaveTheCity;
-import savethecity.exceptions.ProgramControlException;
 import savethecity.model.Players;
 
 /**
@@ -15,8 +14,8 @@ import savethecity.model.Players;
  */
 public class ProgramControl {
 
-    public static Players createPlayer(String name) throws ProgramControlException {
-        try{
+    public static Players createPlayer(String name) {
+        
             if (name == null) {
                 return null;
             }
@@ -28,8 +27,7 @@ public class ProgramControl {
             return player;
         
         
-        } catch (Exception e){
-            throw new ProgramControlException(e.getMessage());
-        }
+        
+        
     }
 }

@@ -5,8 +5,11 @@
  */
 package savetheciy.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import savethecity.SaveTheCity;
 import savethecity.control.GameControl;
+import savethecity.exceptions.MapControlException;
 
 /**
  *
@@ -56,10 +59,14 @@ public class MainMenuView extends View {
 }
     
     private void startNewGame(){
-        GameControl.createNewGame(SaveTheCity.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        try {
+            GameControl.createNewGame(SaveTheCity.getPlayer());
+            
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.displayMenu();
+        } catch (MapControlException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
