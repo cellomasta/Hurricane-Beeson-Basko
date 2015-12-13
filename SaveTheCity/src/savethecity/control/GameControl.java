@@ -149,7 +149,7 @@ public class GameControl {
     }
 
     public static InventoryItem[] getSortedInventoryList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet. In game control"); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static void saveGame(Game currentGame, String filepath)

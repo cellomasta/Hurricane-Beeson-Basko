@@ -53,7 +53,9 @@ public class HelpMenuView extends View {
         return false;
     }
     private void displayGameObejective(){
-        this.console.println("*** Display game objectives ***");
+        this.console.println("Save the towns people that have been captured by the evil "
+                + "villains by finding where they are being held on the map and "
+                + "by solving the riddles and defeating the villains.");
 
     }
     
@@ -62,7 +64,10 @@ public class HelpMenuView extends View {
     }
     
     private void displayCombatInstructions(){
-        this.console.println("*** Diplay Combat instructions ***");
+        this.console.println("When you come across a villain solve the riddle "
+                + "to set the towns person that they are holding captive free. "
+                + "The riddles may require you to use a calculator so make sure"
+                + " you have one handy.");
     }
           
 }

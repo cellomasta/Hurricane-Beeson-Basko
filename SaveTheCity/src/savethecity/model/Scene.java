@@ -11,16 +11,20 @@ package savethecity.model;
  */
 public class Scene {
 
+    String description;
+    String mapSymbol;
+    boolean blocked;
+
     void setDescription(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        description = string;
     }
 
-    void setMapSymbol(String _start_) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void setMapSymbol(String string) {
+        mapSymbol = string;
     }
 
     void setBlocked(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        blocked = b;
     }
-    
+
 }

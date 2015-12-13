@@ -22,7 +22,7 @@ public class StartProgramView {
     protected final PrintWriter console = SaveTheCity.getOutFile();
 
     public StartProgramView() {
-
+        
     }
 
     public void startProgram() throws IOException {
@@ -56,7 +56,6 @@ public class StartProgramView {
                 + "\n* Good luck.                                                  *");
         this.console.println("********************************************************");
     }
-    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     private String getPlayersName() throws IOException {
         boolean valid = false; //indicates if the name has been retrieved

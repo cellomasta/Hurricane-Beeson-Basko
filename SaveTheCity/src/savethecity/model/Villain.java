@@ -23,7 +23,7 @@ public class Villain implements Serializable{
     }
 
     public Villain(String mystique, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet. In villain"); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Character getCharacter() {

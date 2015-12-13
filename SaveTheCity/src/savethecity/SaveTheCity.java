@@ -68,9 +68,6 @@ public class SaveTheCity {
     }
 
     public static void main(String[] args) throws IOException {
-
-        //create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
         try {
             SaveTheCity.inFile = new BufferedReader(new InputStreamReader(System.in));
             SaveTheCity.outFile = new PrintWriter(System.out, true);
@@ -78,11 +75,11 @@ public class SaveTheCity {
             //open log file
             String filePath = "log.txt";
             SaveTheCity.logFile = new PrintWriter(filePath);
-
+        //create StartProgramView and start the program
+        StartProgramView startProgramView = new StartProgramView();
             startProgramView.startProgram();
         } catch (Throwable te) {
             System.out.println(te.getMessage());
-            startProgramView.startProgram();
         } finally {
             try {
                 if (SaveTheCity.inFile != null) {

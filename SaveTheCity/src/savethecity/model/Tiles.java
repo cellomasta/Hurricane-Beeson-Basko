@@ -27,6 +27,8 @@ public class Tiles implements Serializable {
     private String riddle;
     private double answer;
     private ArrayList<Character> characters;
+    private int column;
+    private int row;
 
     public void setScene(Scene s) {
         scene = s;
@@ -230,15 +232,15 @@ public class Tiles implements Serializable {
     }
 
     void setColumn(int column) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.column = column;
     }
 
     void setRow(int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.row = row;
     }
 
     void setVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.visited = visited;
     }
 
 }
