@@ -20,7 +20,7 @@ import savethecity.model.Character;
 public class MapControl {
 
     public static Map createMap() {
-        Map map = new Map(6, 6);
+        Map map = new Map(7, 7);
 
         Scene[] scenes = createScenes();
 
