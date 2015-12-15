@@ -82,7 +82,7 @@ public class GameMenuView extends View {
         //clone (make a copy) originalList
         InventoryItem[] inventoryList = originalInventoryList.clone();
         
-        //using a BubbleSort to sort the list of inventoryist by name
+        //using a BubbleSort to sort the list of inventoryList by name
         InventoryItem tempInventoryItem;
         for (int i = 0; i < inventoryList.length-1; i++){
             for (int j = 0; j < inventoryList.length-1-i; j++){
