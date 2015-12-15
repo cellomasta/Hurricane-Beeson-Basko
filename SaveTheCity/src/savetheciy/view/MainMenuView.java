@@ -63,10 +63,11 @@ public class MainMenuView extends View {
             GameControl.createNewGame(SaveTheCity.getPlayer());
             
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayMenu();
+            gameMenu.display();
         } catch (MapControlException ex) {
+            ex.printStackTrace();
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
     
     

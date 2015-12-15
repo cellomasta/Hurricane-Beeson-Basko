@@ -99,10 +99,6 @@ public class GameMenuView extends View {
         SaveTheCity.getCurrentGame().getMap().displayMap();
     }
 
-    void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet. display the Menu"); //To change body of generated methods, choose Tools | Templates.
-    }
-
     private void printInventory() {
         //Prompt user for file path
         this.console.println("\n\nEnter the path for file where the game" + "is to be saved.");

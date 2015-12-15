@@ -79,6 +79,7 @@ public class SaveTheCity {
         StartProgramView startProgramView = new StartProgramView();
             startProgramView.startProgram();
         } catch (Throwable te) {
+            te.printStackTrace();
             System.out.println(te.getMessage());
         } finally {
             try {
